@@ -1,81 +1,58 @@
 def palindrome?(str)
+    # create 2 arrays and see if they are the same
 
-    result = false
-    new_arr = str.split("")
+    arr = str.split("")
 
-    first_arr =[]
-    end_arr = []
-
-    split_index = new_arr.length / 2.0
-    # puts "split index is "
-    # puts split_index
-
-    (0...split_index).each do |ele|
-        first_arr << new_arr[ele]
-    end
-
-    (split_index...new_arr.length).each do |ele|
-        end_arr << new_arr[ele]
-    end
     
-    flip_arr = end_arr.reverse
+    reverse_arr = []
 
-    print first_arr
-    puts "__________________"
-    puts
-    print end_arr
-    puts "____________________"
-    puts
-    print flip_arr
-
-    if first_arr == flip_arr
-        result = true
+    i = -1
+    k = 0
+    while k < arr.length
+        reverse_arr << arr[i]
+        i -=1
+        k +=1
     end
-    return result
+    #debug arrays
+    # puts "original array"
+    # print arr
+    # puts "reverse array" 
+    # print reverse_arr
+
+    if arr == reverse_arr
+        return true
+    else
+        return false
+    end
+
 end
 
-# p palindrome?("racecar")
-p palindrome?("aa")
-p palindrome?("tot")
+palindrome?("racecar")
 
+def substrings(str)
+# i dont understand this need to witheboard it!
+    # range from 0 to str lentgh do on element start_idx
+    (0...str.length).each do |start_idx|
+        # range from element until string lenght 
+        
+        (start_idx...str.length).each do |end_idx| # this makes a substring
+            # print the original until the end 
+            p str[start_idx..end_idx]
+        end
+    end
+end
 
+substrings("jump")
 
-# def substrings(str)
-#   final_arr =[]
+def palindrome_substrings(str)
 
-#   work_arr = str.split("")
+    return_arr = []
 
-#   oi = 0 
-#   ini = 1
-#   while oi < work_arr.length
-#         puts work_arr[oi]
-#         final_arr << work_arr[oi]
-#     while ini < work_arr.length
-#         if ini>oi
-#             final_arr << work_arr[ini]
-#             puts work_arr[ini]
-#             puts "this works"
-#         end
-#         ini +=1
-#     end
-#     oi += 1
-#   end
-#   print final_arr
-#     # have a nested loop
+    # create all substring
 
-#     # outer index start at 0
+    if substrings(str) is palindrome?(str)
+    return_arr = substrings(str)
 
-#         #inner index needs to be greater then outer index (inner > outer)
-
-# end
-
-# substrings("jump")
-
-
-# # def allpairs(str)
-
-
-# #     (0...srt.length).each do |start_idx|
-# #         (start_idx...str.length).each do |end_idx|
-# #             p str[start_idx..end_idx]
-# # end
+    print return_arr
+end
+palindrome_substrings("abracadabra")
