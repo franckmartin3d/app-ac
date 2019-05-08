@@ -1,0 +1,4 @@
+Notes
+ 
+ to run rspec from root
+rspec -I. spec/00_hello_spec.rb

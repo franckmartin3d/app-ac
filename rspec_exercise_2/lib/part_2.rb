@@ -30,6 +30,8 @@ end
 palindrome?("racecar")
 
 def substrings(str)
+
+    return_arr = []
 # i dont understand this need to witheboard it!
     # range from 0 to str lentgh do on element start_idx
     (0...str.length).each do |start_idx|
@@ -37,22 +39,25 @@ def substrings(str)
         
         (start_idx...str.length).each do |end_idx| # this makes a substring
             # print the original until the end 
-            p str[start_idx..end_idx]
+            return_arr << str[start_idx..end_idx]
         end
     end
+    return return_arr
 end
 
 substrings("jump")
 
 def palindrome_substrings(str)
 
-    return_arr = []
 
-    # create all substring
+    new_arr = []
+    substring_arr = substrings(str)
+    substring_arr.each do |ele|
+        if palindrome?(ele) && ele.length > 1
+            new_arr << ele
+        end
+    end
 
-    if substrings(str) is palindrome?(str)
-    return_arr = substrings(str)
-
-    print return_arr
+    print new_arr
 end
 palindrome_substrings("abracadabra")
