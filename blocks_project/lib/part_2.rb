@@ -1,12 +1,12 @@
 def all_words_capitalized?(word)
 
-    word.all? {|word|iscapitalized(word)}
+    word.all? {|word| word == word.capitalize}
 end
 
 def iscapitalized(word)
 
     word.each do |word|
-        if is_upper(word[0]) && is_lower(word[1...word.length])
+        if word == word.capitalize
             return true
         end
     end
@@ -14,3 +14,13 @@ def iscapitalized(word)
 end
 
 all_words_capitalized?(["Hello", "World"])
+# print iscapitalized(["Hello", "World"])
+
+
+def no_valid_url?(arr)
+
+    end_url = ['.com', '.net', '.io','.org']
+    arr.none?{|url| end_url.include?(url)}
+end
+
+def any_passing_students?
