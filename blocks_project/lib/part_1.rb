@@ -48,33 +48,6 @@ count_positive_subarrays([
     [1, -9, 1],
     [4, 7]
   ])
+def dsggsg()
 
-  def aba_translate (str)
-
-    vowel = "aeiou"
-    modify_arr = []
-    new_arr = str.split("")
-
-    new_arr.each do |char|
-        if vowel.include?(char)
-            modify_arr << char + "b" + char
-        else 
-            modify_arr << char
-        end
-    end
-
-        final_str = modify_arr.join("")
-        return final_str
-
-  end
-
-   p aba_translate("cats")
-
-   def aba_array(array)
-
-    array.map{|word| aba_translate(word)}
-
-   end
-
-   p aba_array(["cat", "dog", "butterfly"])
-
+    
