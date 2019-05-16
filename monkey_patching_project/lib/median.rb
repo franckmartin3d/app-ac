@@ -1,3 +1,6 @@
+require "byebug"
+
+
 def median_sort(arr)
     # bubble sort
     sorted_arr = arr
@@ -51,11 +54,12 @@ end
     # # if even find the middle of the 2 index and return the sum value /2.0
     # #odd find the index of the middle and return the value
 def median(arr)
+    
     sorted_array = median_sort(arr)
     if sorted_array.length.even?
         even_working_index = middle(sorted_array)
         # select the value of the 2 index
-        median = even_working_index[0] + even_working_index[1] / 2.0
+        median = (sorted_array[even_working_index[0]] + sorted_array[even_working_index[1]]) / 2.0
         p "its even"
         puts
         p median
@@ -65,8 +69,8 @@ def median(arr)
         odd_index = middle(sorted_array)
         p "odd_index_ median"
         puts
-        p odd_index
-        return odd_index
+        p sorted_array[odd_index]
+        return sorted_array[odd_index]
 
     end
 end
@@ -85,4 +89,6 @@ end
 # median_sort([2,7,4,9,3])
 
 
-median([5, 10, 9]) #9
+median([3, 8, 4,5]) #9
+# median([5, 0, 2, 6, 11, 10, 9]) #6
+
