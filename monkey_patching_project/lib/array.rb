@@ -97,8 +97,40 @@ class Array
         end
     end
 
-    
+    def counts
+        counter = Hash.new(0)
+        working = self
+        working.each {|ele|counter[ele] +=1}
+        return counter
+        
+    end
+ # _______________________Part 2__________________
 
+    def my_count(number)
+        count = 0
+        self.each do |ele|
+            if ele == number
+                count +=1
+            end
+        end
+        return count
+    end
+
+    def my_index(value)
+        idx_arr =[]
+        if !self.include?(value)
+            return nil
+        else
+            self.each_with_index do |ele, idx|
+                if ele == value
+                    idx_arr << idx
+                end
+            end
+            idx_sorted = idx_arr.sort
+        end
+        return idx_sorted[0]
+    
+    end
 
 
 
