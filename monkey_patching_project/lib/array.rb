@@ -131,7 +131,46 @@ class Array
         return idx_sorted[0]
     
     end
+    def my_uniq
+        
+        #count
+        counter = Hash.new(0)
+        working = self
+        working.each {|ele|counter[ele] +=1}
+        p counter
+        puts
+    
+        # new arr
+    
+        new_arr = []
+    
+        counter.each_key do |k|
+            new_arr << k
+        end
+        return new_arr
+    
+    end
+    def my_transpose
+        new_arr = []
+        #row
+        (0...self.length).each do |row|
+            new_row = []
 
+            # coloumn
+            (0...self.length).each do |col|
+                #switch row and column
+                new_row << self[col][row]
+            end
+            #shuffle it back into new array
+            new_arr<<new_row
+        end
+        new_arr
+    end
+
+
+
+        
+        
 
 
 end
