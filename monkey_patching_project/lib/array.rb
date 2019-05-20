@@ -131,6 +131,13 @@ class Array
         return idx_sorted[0]
     
     end
+    def my_uniq
+        uniq_arr =[]
+
+        
+
+
+    end
 
 
 
