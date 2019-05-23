@@ -40,8 +40,24 @@ class Hotel
     end
 
     def has_vacancy?
+        # if all hotel room are full
+        
+        #call all room
+        @rooms.each_key do |key|
+            if key.room.full? #this aint working
+                return false
+            else 
+                return true
+            end
+        end
+    end
+
+    def list_rooms
+        puts @rooms
+    end
+            
         
 
-    end
+    
     
 end
