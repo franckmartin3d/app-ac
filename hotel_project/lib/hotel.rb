@@ -1,4 +1,4 @@
-require_relative "room"
+require_relative "room.rb"
 
 class Hotel
     def initialize(name,capacities)
@@ -31,29 +31,27 @@ class Hotel
         end
     end
 
-    def check_in(person, room)
-        if self.room_exists?(room)
-            @rooms[room].add_occupant(person)
+    def check_in(person, room_name)
+        if self.room_exists?(room_name)
+           if  @rooms[room_name].add_occupant(person)
+                puts "check in successful"
+            else
+                puts "sorry, room is full"
+            end
         else
             puts "sorry, room does not exist"
         end
     end
 
     def has_vacancy?
-        # if all hotel room are full
-        
-        #call all room
-        @rooms.each_key do |key|
-            if key.room.full? #this aint working
-                return false
-            else 
-                return true
-            end
-        end
+        @rooms.value.any?{ |room|room.available_space > 0}
+       
     end
 
     def list_rooms
-        puts @rooms
+        @rooms.each do |room_name,room|
+            puts "#{room_name} #{room.available_space}"
+        end
     end
             
         
